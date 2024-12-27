@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>همتابوک</title>
+    <link rel="stylesheet" href="/dist/output.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @font-face {
+            font-family: DanaDemiBold;
+            src: local("Dana"), url("/public/fonts/Dana/woff2/DanaFaNum-Medium.woff2") format("woff2");
+        }
+
+        * {
+            font-family: DanaDemiBold !important;
+        }
+
+        .mystery-bg-light {
+            background-image: url('/240_F_874675869_1iPgboXgeZHBsN5KquT6cJ9sW3Hzqmim.jpg');
+            /* Replace with mystery-themed image URL */
+            background-size: cover;
+        }
+
+        .mystery-bg-dark {
+            background-image: url('/240_F_812207435_oD3Amhfcw3BW3QKOhskfLifv8PPSS7K1.jpg');
+            /* Replace with mystery-themed image URL */
+            background-size: cover;
+        }
+
+        /* Blur effect for cart */
+        .blur-cart {
+            background-color: rgba(0, 0, 0, 0.7);
+            /* Darker transparency */
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+
+<body dir="rtl"
+    class="mystery-font bg-gray-100 dark:bg-gray-900 mystery-bg-light dark:mystery-bg-dark transition duration-500">
+    <div class="min-h-screen flex items-center justify-center p-6">
+        <div class="max-w-lg w-full rounded-lg shadow-lg p-6 blur-cart">
+            <h1 class="text-center text-3xl text-gray-800 dark:text-gray-100 mb-6">سبد خرید</h1>
+
+            <!-- Countdown Timer -->
+            <div id="countdown" class="text-center text-xl text-red-600 dark:text-red-400 mb-4">
+                انقضای تخفیف ویژه <span id="timer">10:00</span>
+            </div>
+
+            <!-- Basket Items -->
+            <div id="basket-items" class="space-y-4">
+                <!-- Sample Item -->
+                <div class="flex items-center justify-between bg-gray-100 dark:bg-gray-700 p-4 rounded-md shadow">
+                    <div class="flex items-center">
+                        <img src="/images/products/romantic/IWantToBeWhereYouAre.png" alt="Book Image"
+                            class="w-16 h-16 mr-4">
+                        <div>
+                            <p class="text-lg text-gray-800 dark:text-gray-200">می خواهم آنجا باشم که تو هستی</p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">قیمت : <span class="productPrice"
+                                    id="">10000</span></p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <button
+                            class="decrease-btn bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-200 px-2 py-1 rounded">-</button>
+                        <span class="quantity text-lg text-gray-800 dark:text-gray-200">1</span>
+                        <button
+                            class="increase-btn bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-200 px-2 py-1 rounded">+</button>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Discount Code and Total Price -->
+            <div class="mt-6 flex justify-between items-center gap-x-2">
+                <input type="text" id="discountCode" placeholder="کد تخفیف خود را وارد نمایید"
+                    class="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-indigo-400">
+
+                <button id="applyDiscount"
+                    class="flex justify-center items-center w-full py-2 px-4 bg-green-600 text-white rounded-md hover:bg-green-700 transition duration-300">اعمال
+                    کد تخفیف</button>
+
+            </div>
+
+            <div class="mt-6 text-center text-xl text-gray-800 dark:text-gray-100">
+                جمع هزینه: <span id="totalPrice">1000</span><br>
+                قیمت با اعمال تخفیف: <span id="discountedPrice" class="text-green-600">1000</span>
+            </div>
+
+            <!-- Navigate to Address Page Button -->
+            <div class="mt-6">
+                <button onclick="window.location.href='address.html'"
+                    class="w-full py-2 px-4 bg-orange-300 text-white rounded-md hover:bg-orange-500 transition duration-300">
+                    ادامه
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let itemsPrice = document.querySelectorAll('.productPrice')
+        let itemsQuantity = document.querySelectorAll('.quantity')
+        let basketItems = document.getElementById('basket-items');
+        let totalPriceEl = document.getElementById('totalPrice');
+        let discountedPriceEl = document.getElementById('discountedPrice');
+        let discountApplied = false;
+
+        itemsQuantity.forEach((item)=>{
+            item.addEventListener('change', updatePrices())
+        })
+
+        // Countdown Timer
+        let timeLeft = 600; 
+        let timerDisplay = document.getElementById('timer');
+
+        function updateCountdown() {
+            let minutes = Math.floor(timeLeft / 60);
+            let seconds = timeLeft % 60;
+            timerDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+            timeLeft--;
+            if (timeLeft >= 0) setTimeout(updateCountdown, 1000);
+            else timerDisplay.textContent = "متاسفانه پیشنهاد ویژه به پایان رسید!";
+        }
+        updateCountdown();
+
+
+        // Basket Operations
+        function updatePrices() {
+            let total = 0
+            for (let index = 0; index < itemsPrice.length; index++) {
+                total += Number(itemsPrice[index].innerHTML) * parseInt(itemsQuantity[index].innerHTML)
+            }
+            totalPriceEl.textContent = `${total.toFixed(2)}`;
+            discountedPriceEl.textContent = discountApplied ? `${(total * 0.8).toFixed(2)}` : `${total.toFixed(2)}`;
+        }
+
+
+        document.querySelectorAll('.increase-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                let quantitySpan = button.parentElement.querySelector('.quantity')
+                quantitySpan.innerHTML = parseInt(quantitySpan.innerHTML) + 1
+                updatePrices()
+            });
+        });
+
+        document.querySelectorAll('.decrease-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                let quantitySpan = button.parentElement.querySelector('.quantity')
+                quantitySpan.innerHTML = parseInt(quantitySpan.innerHTML) - 1
+                updatePrices()
+            });
+        });
+
+        document.getElementById('applyDiscount').addEventListener('click', () => {
+            if (document.getElementById('discountCode').value === "DISCOUNT20") {
+                discountApplied = true;
+                document.getElementById('applyDiscount').innerHTML = `<span>با موفقیت اعمال شد </span><svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M19.7071 6.29289C20.0976 6.68342 20.0976 7.31658 19.7071 7.70711L10.4142 17C9.63316 17.7811 8.36683 17.781 7.58579 17L3.29289 12.7071C2.90237 12.3166 2.90237 11.6834 3.29289 11.2929C3.68342 10.9024 4.31658 10.9024 4.70711 11.2929L9 15.5858L18.2929 6.29289C18.6834 5.90237 19.3166 5.90237 19.7071 6.29289Z" fill="#fff"></path> </g></svg>`
+                updatePrices();
+            }
+        });
+
+        // Initial render
+        updatePrices();
+    </script>
+</body>
+
+</html>
