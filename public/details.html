@@ -11,6 +11,7 @@
     integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
     crossorigin="anonymous" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/dist/tailwind.js"></script>
   <script type="text/Javascript">
     if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark')
@@ -334,21 +335,13 @@
           </div>
         </div>
         <!--mood changer-->
-        <div id="theme-switch" class="toggle-theme cursor-pointer">
-          <div class="w-8 h-8 dark:inline-block hidden">
-            <svg id="moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-              stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
-            </svg>
-          </div>
-          <div class="w-8 h-8 dark:hidden inline-block">
-            <svg id="sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-              stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
-            </svg>
-          </div>
+        <div class=" toggle-theme cursor-pointer" id="themeSwitch" onclick="swithThemes()">
+          <svg class="w-8 h-8 hidden" id="moonElem">
+            <use xlink:href="#moon"></use>
+          </svg>
+          <svg class="w-8 h-8 inline-block" id="sunElem">
+            <use xlink:href="#sun"></use>
+          </svg>
         </div>
         <!-- the line between login and buttond -->
         <span class="block w-xp h-14 bg-white"></span>
@@ -623,8 +616,7 @@
       </button> -->
       <!-- card left -->
       <div class="product-img">
-        <img class="bookImg" id="bookImg" src="/final-pageDetails/images-detailsBook/SorceryOfThorns.jpg"
-          alt="shoe image">
+        <img class="bookImg" id="bookImg" src="images-detailsBook/SorceryOfThorns.jpg" alt="shoe image">
       </div>
       <!-- card right -->
       <div class="product-content">
@@ -843,7 +835,7 @@
 
             <div class="comments"></div>
             <div class="commentbox">
-              <img src="/final-pageDetails/images-detailsBook/user1.png" alt="">
+              <img src="images-detailsBook/user1.png" alt="">
               <div class="content">
                 <input type="text" value="  کاربر سایت" class="user">
 
