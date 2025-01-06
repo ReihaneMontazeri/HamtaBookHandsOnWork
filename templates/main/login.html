@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+    <title>Login Page</title>
+    <!-- Custom CSS Stylesheets -->
+    <link rel="stylesheet" href="{{url_for('static', filename='/auth/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='/main/styles/custome-font.css')}}">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Styles -->
+    <style>
+        *, body{
+            font-family: "Dana DemiBold";
+        }
+    </style>
+</head>
+
+<body class="w-full h-screen flex items-center justify-center bg-[#28292a]">
+
+    <section class="w-[330px] md:w-[800px] ">
+        <div class="w-full flex items-center">
+            <div class='w-full  md:h-[600px] h-full bg-white flex flex-wrap overflow-hidden rounded-md'>
+                <div class='w-full md:w-6/12 h-full relative md:flex hidden overflow-hidden '>
+                    <span class='absolute bg-[#00000062] left-0 right-0 bottom-0 top-0  z-[2]'></span>
+                    <!-- Login Cover Image -->
+                    <img id='coverLogin' src="{{ url_for('static', filename='main/images/image-book.jpg') }}" class='w-full h-full object-cover object-center absolute
+						transition-all duration-700  z-[1] top-0 opacity-100' alt='auth' />
+                     <!-- Register Cover Image -->
+                     <img id='coverRegister' src="{{ url_for('static', filename='main/images/image-book2.jpg') }}" class='w-full h-full object-cover object-center absolute
+						transition-all duration-700 z-[-1] top-[-20px] opacity-0' alt='auth' />
+                </div>
+                <div class='w-full md:w-6/12 h-full p-[20px] bg-slate-100'>
+                    <div class='w-full flex flex-col m-auto max-w-[400px] '>
+                        <div class='w-full flex flex-col items-center justify-center '>
+                            <span class='my-2'>به همتا بوک خوش آمدید</span>
+                            <div
+                                class="w-[200px] h-10 flex items-center justify-between rounded-full border shadow mt-4 p-1">
+                                <!-- Login Button -->
+                                <button id='btnLogin' onclick="handelForm('login')" type="button" class='w-full h-full
+									bg-pos-100 rounded-full flex items-center justify-center transition-all text-xs
+									bg-orange-300 text-white '>ورود</button>
+                                <!-- Register Button -->
+                                <button id='btnRegister' onclick="loadRegister()" type="button"
+                                    class='w-full h-full bg-pos-100 rounded-full flex items-center justify-center transition-all text-xs text-black '>ثبت نام</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full  flex flex-col relative overflow-hidden">
+                        <!-- Login Form -->
+                        <form id="loginForm" class='w-full flex flex-col pt-[30px] ' action="{{ url_for('sign_in')}}" method="post">
+                            <div class="w-full flex flex-col">
+                                <span class="text-xs mb-2 text-gray-500 ml-2
+									">آدرس ایمیل </span>
+                                <input name="email" id="email" type="text" placeholder="ایمیل خود را وارد کنید "
+                                    class="w-full h-10 rounded-full border border-gray-300 px-[10px] focus:outline-none text-sm"
+                                    required />
+                            </div>
+                            <div class="w-full flex flex-col mt-5">
+                                <span class="text-xs mb-2 text-gray-500 ml-2 ">رمز عبور</span>
+                                <input name='password' id="password" type="password" placeholder="رمز عبور وارد کنید  "
+                                    class="w-full h-10 rounded-full border border-gray-300 px-[10px] focus:outline-none text-sm"
+                                    required />
+                            </div>
+                            <button type="submit" 
+                                class="w-full h-10 bg-orange-300 flex items-center justify-center text-white text-sm rounded-full mt-10">ورود</button>
+                            <div class="w-full flex flex-col mt-10">
+                                <div class="w-full relative border-t flex justify-center ">
+                                    <span class="bg-slate-100 -mt-[14px] flex w-10 justify-center">یا</span>
+                                </div>
+                                <div class="w-full flex items-center justify-between mt-4 text-xs px-2">
+                                    <span class="cursor-pointer" onclick="loadRegister()">حساب کاربری ندارید ؟</span>
+                                    <span class="text-[#0e286b] cursor-pointer">رمز عبور خود را فراموش کردید؟</span>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Script link -->
+    <script src="{{url_for('static', filename='/auth/js.js')}}"></script>
+</body>
+
+<script>
+    // Automatically handle login form display
+    window.addEventListener('DOMContentLoaded', handelForm('login'))
+    // Redirect to register page
+    function loadRegister() {
+    window.location.href = '/register'
+}
+</script>
+</html>

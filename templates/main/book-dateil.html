@@ -1,0 +1,284 @@
+{% extends '/main/layout/base.html' %}
+
+{% block content %}
+
+<main>
+  <!--bg black-->
+<div class="overlay"></div>
+<div class="card-wrapper" style="margin-top: 12rem;">
+
+  <div class="card">
+    <!-- <button id="theme-switch" style="float: left;  margin-top:5rem;position: absolute;">
+
+      <svg width="24px" height="24px" version="1.1" id="Layer_1_1_" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 16 16"
+        style="enable-background:new 0 0 16 16;" xml:space="preserve">
+        <circle cx="8.5" cy="7.5" r="4.5" />
+        <rect x="8" width="1" height="2" />
+        <rect x="8" y="13" width="1" height="2" />
+        <rect x="14" y="7" width="2" height="1" />
+        <rect x="1" y="7" width="2" height="1" />
+        <rect x="12.596" y="11.096" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -4.7175 12.8033)" width="1"
+          height="2" />
+        <rect x="3.404" y="1.904" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -0.9099 3.6109)" width="1"
+          height="2" />
+        <rect x="2.904" y="11.596" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -7.4099 6.3033)" width="2"
+          height="1" />
+        <rect x="12.096" y="2.404" transform="matrix(0.7071 -0.7071 0.7071 0.7071 1.7823 10.1107)" width="2"
+          height="1" />
+      </svg>
+      <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
+        viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+
+        <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+          <path d="M1719 4922 c-307 -123 -565 -290 -803 -522 -473 -460 -728 -1032
+-753 -1690 -19 -512 123 -1016 407 -1443 788 -1187 2405 -1464 3545 -608 114
+86 318 280 410 391 164 198 304 436 400 680 51 132 43 194 -36 253 -46 33 -94
+32 -219 -6 -226 -68 -417 -97 -652 -97 -409 0 -802 115 -1153 338 -243 155
+-490 402 -647 647 -348 546 -432 1205 -233 1834 30 94 29 147 -2 190 -60 79
+-127 88 -264 33z" />
+        </g>
+      </svg>
+    </button> -->
+    <!-- card left -->
+    <div class="product-img">
+      <img class="bookImg" id="bookImg" src="{{ url_for('static', filename='main/images/images-detailsBook/' + book.cover_image) }}" alt="shoe image">
+    </div>
+    <!-- card right -->
+    <div class="product-content">
+      <!-- Book title in Persian -->
+      <h2 class="product-title">{{book.persian_title}}</h2>
+        <!-- Book title in English -->
+        <a href="#" class="product-link">{{book.english_title}}</a>
+
+
+      <div class="product-col1">
+        <div class="product-detail-container">
+          <div class="product-detail-right">
+            <!-- Price and like/comment section -->
+            <div class="product-price-like">
+              <!-- Book price -->
+              <div class="product-price">
+                <span class="price">{{book.price}}</span>
+              </div>
+              <!-- Like and comment section -->
+              <div class="like&comm" style="display: flex;">
+                <div class="like-button">
+                  <div class="heart-bg">
+                    <div class="heart-icon"></div>
+                  </div>
+                  <div class="likes-amount"></div>
+                </div>
+                <!-- Comment scroll icon -->
+                <div id="scrollToComment" class="scrollToComment" style=' margin-top: 15px; '><svg version="1.1"
+                    id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                    y="0px" width="36px" height="36px" viewBox="0 0 511.626 511.626"
+                    style="enable-background:new 0 0 511.626 511.626;" xml:space="preserve">
+                    <g>
+                      <g>
+                        <!-- Top layer of the comment icon -->
+                        <path d="M301.927,327.605c30.926-13.038,55.34-30.785,73.23-53.248c17.888-22.458,26.833-46.915,26.833-73.372
+                        c0-26.458-8.945-50.917-26.84-73.376c-17.888-22.459-42.298-40.208-73.228-53.249c-30.93-13.039-64.571-19.556-100.928-19.556
+                        c-36.354,0-69.995,6.521-100.927,19.556c-30.929,13.04-55.34,30.789-73.229,53.249C8.947,150.072,0,174.527,0,200.986
+                        c0,22.648,6.767,43.975,20.28,63.96c13.512,19.981,32.071,36.829,55.671,50.531c-1.902,4.572-3.853,8.754-5.852,12.566
+                        c-2,3.806-4.377,7.467-7.139,10.991c-2.76,3.525-4.899,6.283-6.423,8.275c-1.523,1.998-3.997,4.812-7.425,8.422
+                        c-3.427,3.617-5.617,5.996-6.567,7.135c0-0.191-0.381,0.24-1.143,1.287c-0.763,1.047-1.191,1.52-1.285,1.431
+                        c-0.096-0.103-0.477,0.373-1.143,1.42c-0.666,1.048-1,1.571-1,1.571l-0.715,1.423c-0.282,0.575-0.476,1.137-0.57,1.712
+                        c-0.096,0.567-0.144,1.19-0.144,1.854s0.094,1.28,0.288,1.854c0.381,2.471,1.475,4.466,3.283,5.996
+                        c1.807,1.52,3.756,2.279,5.852,2.279h0.857c9.515-1.332,17.701-2.854,24.552-4.569c29.312-7.61,55.771-19.797,79.372-36.545
+                        c17.129,3.046,33.879,4.568,50.247,4.568C237.353,347.16,270.998,340.645,301.927,327.605z"
+                          id="id_101" style="fill:var(--topLaye-iconComm);"></path>
+                        <!-- Bottom layer of the comment icon -->
+                        <path
+                          d="M491.354,338.166c13.518-19.889,20.272-41.247,20.272-64.09c0-23.414-7.146-45.316-21.416-65.68
+                        c-14.277-20.362-33.694-37.305-58.245-50.819c4.374,14.274,6.563,28.739,6.563,43.398c0,25.503-6.368,49.676-19.129,72.519
+                        c-12.752,22.836-31.025,43.01-54.816,60.524c-22.08,15.988-47.205,28.261-75.377,36.829
+                        c-28.164,8.562-57.573,12.848-88.218,12.848c-5.708,0-14.084-0.377-25.122-1.137c38.256,25.119,83.177,37.685,134.756,37.685
+                        c16.371,0,33.119-1.526,50.251-4.571c23.6,16.755,50.06,28.931,79.37,36.549c6.852,1.718,15.037,3.237,24.554,4.568
+                        c2.283,0.191,4.381-0.476,6.283-1.999c1.903-1.522,3.142-3.61,3.71-6.272c-0.089-1.143,0-1.77,0.287-1.861
+                        c0.281-0.09,0.233-0.712-0.144-1.852c-0.376-1.144-0.568-1.715-0.568-1.715l-0.712-1.424c-0.198-0.376-0.52-0.903-0.999-1.567
+                        c-0.476-0.66-0.855-1.143-1.143-1.427c-0.28-0.284-0.705-0.763-1.28-1.424c-0.568-0.66-0.951-1.092-1.143-1.283
+                        c-0.951-1.143-3.139-3.521-6.564-7.139c-3.429-3.613-5.899-6.42-7.422-8.418c-1.523-1.999-3.665-4.757-6.424-8.282
+                        c-2.758-3.518-5.14-7.183-7.139-10.991c-1.998-3.806-3.949-7.995-5.852-12.56C459.289,374.859,477.843,358.062,491.354,338.166z"
+                          id="id_102" style="fill: var(--bottomLaye-iconComm);"></path>
+                      </g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                  </svg></div>
+              </div>
+
+            </div>
+            <!-- Rating and availability section -->
+            <div class="check-rating-box">
+              <!-- Availability status -->
+              <div class="book-check" id="book-check" style="margin-top:10px;">
+                <div id="availability-status">
+                  <p id="check-icon"></p>
+                  <p class="availability-text" id="availability-text"></p>
+                </div>
+              </div>
+              <!-- Product rating -->
+              <div class="product-rating">
+                <span class="rating-value" id="rating-value">0.0</span>
+                <i class="fas fa-star" data-value="1"></i>
+                <i class="fas fa-star" data-value="2"></i>
+                <i class="fas fa-star" data-value="3"></i>
+                <i class="fas fa-star" data-value="4"></i>
+                <i class="fas fa-star" data-value="5"></i>
+
+              </div>
+            </div>
+            <!-- Book Publishing Information -->
+            <div class="book-publishing ">
+              انتشارات :
+
+              <span id="book-publishing" class="boodDet">آذرباد</span>
+            </div>
+            <!-- Book Author Information -->
+            <div class="book-author">
+              نویسنده :
+              <span id="book-author" class="boodDet">مارگارت راجرسون</span>
+            </div>
+          </div>
+          <!-- Product Details Table -->
+          <div class="product-table">
+            <table class="detail-table">
+              <tbody>
+                <tr class="rowTable">
+                  <td>کد کتاب : </td>
+                  <td><span id="book-code" class="book-info">{{book.id}}</span></td>
+                </tr>
+                <tr class="rowTable">
+                  <td>شابک : </td>
+                  <td><span id="isbn" class="book-info">{{book.shabak}}</span></td>
+                </tr>
+                <tr class="rowTable">
+                  <td>قطع : </td>
+                  <td><span id="size" class="book-info">{{book.ghat}}</span></td>
+                </tr>
+                <tr class="rowTable">
+                  <td>تعداد صفحه : </td>
+                  <td><span id="page-count" class="book-info">{{book.number_pages}}</span></td>
+                </tr>
+                <tr class="rowTable">
+                  <td>سال انتشار شمسی : </td>
+                  <td><span id="year-shamsi" class="book-info">{{book.public_year_shamsi}}</span></td>
+                </tr>
+                <tr class="rowTable">
+                  <td>سال انتشار میلادی : </td>
+                  <td><span id="year-miladi" class="book-info">{{book.public_year_miladi}}</span></td>
+                </tr>
+                <tr class="rowTable">
+                  <td>نوع جلد : </td>
+                  <td><span id="cover-type" class="book-info">{{book.typee}}</span></td>
+                </tr>
+                <tr class="rowTable">
+                  <td class="lastTr">سری چاپ : </td>
+                  <td class="lastTr"><span id="print-series" class="book-info">{{book.print_series}}</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+        <!-- Purchase Information -->
+        <div class="purchase-info">
+            
+            <input type="hidden" id="book-id" value="{{book.id}}">
+            
+            <button type="button" class="add-to-cart-btn" id="add-to-cart-btn">
+              اضافه کردن به سبد خرید <i style='margin-right: 10px;' class="fas fa-shopping-cart"></i>
+            </button>
+        </div>
+      </div>
+      <!-- Book Introduction -->
+      <div class="product-introduce" id="book-title">
+        <h2>معرفی کتاب {{book.persian_title}} اثر {{book.author}}</h2>
+          <p id="intro-paragraph1">{{book.description}}</p>
+
+        <!-- <div class="social-links">
+        <p>Share At: </p>
+        <a href="#">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="#">
+          <i class="fab fa-pinterest"></i>
+        </a>-->
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+</main>
+{% block script %}
+  <!-- JavaScript for Add to Cart Functionality -->
+  <script defer>
+    document.getElementById('add-to-cart-btn').addEventListener('click', () => {
+      const button = document.getElementById('add-to-cart-btn');
+      button.disabled = true; // غیرفعال کردن دکمه
+  
+      const bookId = document.getElementById('book-id').value;
+  
+      fetch('/user/add-to-cart', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+              book_id: bookId
+          })
+      })
+      .then(response => response.json())
+      .then(data => {
+          alert(data.message);
+          button.disabled = false; // فعال کردن دکمه پس از اتمام درخواست
+      })
+      .catch(error => {
+          console.error('Error:', error);
+          button.disabled = false; // فعال کردن دکمه حتی در صورت خطا
+      });
+  });
+  </script>
+{% endblock %}
+{% endblock %}
+

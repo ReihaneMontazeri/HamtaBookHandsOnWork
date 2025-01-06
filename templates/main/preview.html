@@ -1,0 +1,126 @@
+{% extends '/main/layout/base.html' %}
+{% block content %}
+    
+    <!--app main container-->
+    <main>
+        <!--product background-->
+        <section
+            class="home relative h-[200px] xs:h-auto xs:aspect-auto bg-home-mobile md:bg-home-desktop bg-no-repeat bg-cover bg-[center_top]">
+            <div class="container relative overflow-y-hidden h-full md:min-h-screen flex justify-end items-center">
+                <div class="text-white">
+                    <h2 class="font-MorabbaBold text-2xl md:text-6xl/[62px] mb-0.5 md:mb-2">همتا بوک</h2>
+                    <span class="font-MorabbaLight text-xl md:text-5xl/[64px]">چند صفحه حال خوب!</span>
+                    <span class="block w-[100px] h-px md:h-0.5 mb-2 bg-orange-100 md:my-8"></span>
+                    <p class="max-w-[201px] md:max-w-[460px] text-xs md:text-2xl">«یک کتابخوان قبل از مرگ هزاران بار
+                        زندگی می کند. کسی که هرگز کتاب نمی‌خواند، فقط یک بار زندگی می‌کند.» </p>
+                    <p class="max-w-[201px] md:max-w-[460px] text-xs md:text-xl text-left ">جرج آر آر مارتین</p>
+
+                </div>
+                <!--circles-->
+
+                <div class="circle lg--circle main--circle">
+                    <div class="circle md--circle">
+                        <div class="circle sm--circle">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--curve-->
+            <div>
+                <svg
+                    class="absolute hidden md:inline-block left-0 bottom-0 right-0 mx-auto text-gray-100 dark:text-zinc-800 w-[100px] h-[22px]">
+                    <use href="#curve"></use>
+                </svg>
+            </div>
+
+            <!--chevron down-->
+            <div
+                class="absolute translate-y-2/4 left-0 bottom-0 right-0 mx-auto hidden md:flex items-center justify-center w-[30px] h-[30px] rounded-full border-orange-300 border-2">
+                <svg class="w-5 h-5 text-zinc-700 dark:text-white">
+                    <use href="#chevron-down"></use>
+                </svg>
+            </div>
+        </section>
+        <!--product-->
+        <section class="products pt-8 md:pt-24 lg:pt-48 mb-5 md:mb-12">
+            <div class="container">
+                <!--section head-->
+                <div class="flex justify-between items-end mb-12">
+                    <div>
+                        <h3 class="sectionTitle">جدیدترین محصولات</h3>
+                        <span class="sectionSub">ادبیات جهانی فراتر از مرزها</span>
+                    </div>
+                    <a href="#" class="sectionLink">
+                        <span class="hidden md:inline-block">مشاهده همه محصولات</span>
+                        <span class="inline-block md:hidden">مشاهده همه</span>
+                        <svg class="w-5 h-5">
+                            <use href="#chevron-left-mini"></use>
+                        </svg>
+                    </a>
+                </div>
+                <!--section body-->
+                <div
+                    class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3.5 md:gap-5 child:rounded-2xl child:p-2 child:md:p-5">
+                    <!--product-->
+                    {% for book in books %}
+                    <div class="bg-white dark:bg-zinc-700 shadow-normal">
+                        <a href="{{url_for('book_dateil')}}?book_id={{book.id}}">
+
+                            <!--image of products-->
+                            <div class="relative mb-2 flex justify-between align-center w-full md:mb-5">
+                                <img src="{{ url_for('static', filename='main/images/images-detailsBook/' + book.cover_image) }}" class="w-40 md:w-auto" alt="p1">
+                                <span
+                                    class="absolute top-1.5 right-1.5 font-DanaDemiBold text-white dark:text-zinc-700 text-xs md:text-balance px-2.5 md:px-3.5 rounded-full h-5 md:h-[30px] leading-6 md:leading-[34px] block bg-orange-300">12%</span>
+                            </div>
+                            <!--title of product-->
+                            <div
+                                class="font-DanaMedium text-sm md:text-xl h-10 md:h-14 text-zinc-700 dark:text-white line-clamp-2">
+                                <!-- <h5>کیسه استخوان ها</h5> -->
+                                <h5>{{book.persian_title}}</h5>
+                            </div>
+                            <!--price-->
+                            <div class="flex mt-1.5 md:mt-2.5 md:gap-x-2.5 gap-x-2">
+                                <div class="text-teal-600 dark:text-emerald-500">
+                                    <span class="font-DanaDemiBold text-base md:text-xl ">{{book.price}}</span>
+                                    <span class="text-xs md:text-sm tracking-tighter">تومان</span>
+                                </div>
+                                <!-- <div class="offer">
+                                    <span class="text-xs md:text-xl">175,000</span>
+                                    <span class="hidden xl:inline text-xs md:text-sm tracking-tighter">تومان</span>
+                                </div> -->
+                            </div>
+                            <!--shopping cart and right-left and star icons-->
+                            <div class="flex items-center justify-between mt-2.5">
+                                <div class="flex items-center gap-x-2.5 md:gap-x-3 ">
+                                    <span
+                                        class="flex-center bg-gray-100 hover:bg-teal-600 dark:bg-zinc-700 dark:hover:bg-emerald-500 text-gray-400 hover:text-white w-[26px] h-[26px] md:w-9 md:h-9 rounded-full transition-all cursor-pointer">
+                                        <svg class="w-4 h-4 md:w-[22px] md:h-[22px]">
+                                            <use href="#shopping-cart"></use>
+                                        </svg>
+                                    </span>
+                                    <span
+                                        class="flex-center text-gray-400 hover:text-teal-600 dark:hover:text-emerald-500 cursor-pointer">
+                                        <svg class="w-4 h-4 md:w-6 md:h-6 transition-all">
+                                            <use href="#arrows-left-right"></use>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <!--star-->
+                                <div class="flex text-yellow-400 ">    
+                                    <a href="{{url_for('book_dateil')}}?book_id={{book.id}}"><i class="fa fa-lg fa-info-circle"></i></a>                                
+                                </div>
+                            </div>
+                        </div> 
+                        </a>
+                    {% endfor %}
+                    
+
+                </div>
+            </div>
+        </section>
+
+
+
+    </main>
+    
+{% endblock %}
