@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Custom Font Stylesheet -->
+    <link rel="stylesheet" href="{{url_for('static', filename='/main/styles/custome-font.css')}}">
+
+    <title>همتابوک - رسید نهایی</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Styles -->
+    <style>
+    
+        * {
+            font-family: "Dana DemiBold";
+        }
+
+        .mystery-bg-light {
+            background-image: url('');
+            background-size: cover;
+        }
+
+        .mystery-bg-dark {
+            background-image: url('/240_F_812207435_oD3Amhfcw3BW3QKOhskfLifv8PPSS7K1.jpg');
+            background-size: cover;
+        }
+
+        /* Blur effect */
+        .blur-bg {
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+
+<body dir="rtl"
+    class="mystery-bg-light dark:mystery-bg-dark transition duration-500 min-h-screen flex items-center justify-center p-6">
+    <div class="max-w-lg w-full bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 blur-bg">
+        <h1 class="text-center text-3xl text-gray-800 dark:text-gray-100 mb-6">رسید نهایی</h1>
+
+        <!-- User Information -->
+        <div class="mb-4">
+            <h2 class="text-2xl text-gray-800 dark:text-gray-100 mb-4">اطلاعات کاربر</h2>
+            <div class="space-y-2">
+                <p class="text-gray-800 dark:text-gray-200"><strong>نام:</strong> <span id="userName">نام کاربر</span></p>
+                <p class="text-gray-800 dark:text-gray-200"><strong>نام خانوادگی:</strong> <span id="userFamilyName">نام خانوادگی</span></p>
+                <p class="text-gray-800 dark:text-gray-200"><strong>شماره تلفن:</strong> <span id="userPhone">09123456789</span></p>
+                <p class="text-gray-800 dark:text-gray-200"><strong>کد پستی:</strong> <span id="userPostcode">1234567890</span></p>
+                <p class="text-gray-800 dark:text-gray-200"><strong>آدرس:</strong> <span id="userAddress">تهران، ایران</span></p>
+                <p class="text-gray-800 dark:text-gray-200"><strong>ایمیل:</strong> <span id="userEmail">example@example.com</span></p>
+            </div>
+        </div>
+
+        <!-- Basket Items -->
+        <div class="mt-6">
+            <h2 class="text-2xl text-gray-800 dark:text-gray-100 mb-4">محصولات سبد خرید</h2>
+            <div id="basket-items" class="space-y-4">
+                <!-- Sample Item -->
+                <div class="flex items-center justify-between bg-gray-100 dark:bg-gray-700 p-4 rounded-md shadow">
+                    <div class="flex items-center">
+                        <img src="/images/products/romantic/IWantToBeWhereYouAre.png" alt="Book Image" class="w-16 h-16 mr-4">
+                        <div>
+                            <p class="text-lg text-gray-800 dark:text-gray-200">می خواهم آنجا باشم که تو هستی</p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">قیمت : <span class="productPrice">10000</span></p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">تعداد: <span class="quantity">1</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Total Price -->
+        <div class="mt-6 text-xl text-gray-800 dark:text-gray-100">
+            جمع هزینه: <span id="totalPrice">10000</span> تومان<br>
+            قیمت با اعمال تخفیف: <span id="discountedPrice" class="text-green-600">8000</span> تومان
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="mt-6 flex justify-between items-center">
+            <button onclick="window.location.href='payment.html'"
+                class="w-full py-2 px-4 bg-green-600 text-white rounded-md hover:bg-green-700 transition duration-300">تکمیل خرید و پرداخت</button>
+        </div>
+    </div>
+
+    <script>
+        // Example user data for demonstration purposes
+        const userData = {
+            userName: 'علی',
+            userFamilyName: 'رضایی',
+            userPhone: '09123456789',
+            userPostcode: '1234567890',
+            userAddress: 'تهران، ایران',
+            userEmail: 'example@example.com'
+        };
+
+        // Update user info dynamically
+        document.getElementById('userName').textContent = userData.userName;
+        document.getElementById('userFamilyName').textContent = userData.userFamilyName;
+        document.getElementById('userPhone').textContent = userData.userPhone;
+        document.getElementById('userPostcode').textContent = userData.userPostcode;
+        document.getElementById('userAddress').textContent = userData.userAddress;
+        document.getElementById('userEmail').textContent = userData.userEmail;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اطلاعات حساب کاربری</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Font Stylesheet -->
+    <link rel="stylesheet" href="{{url_for('static', filename='/main/styles/custome-font.css')}}">
+
+    <style>
+        /* Custom fantasy font and theme switch styling */
+       
+        *{
+            font-family: "Dana DemiBold";
+        }
+        .fantasy-bg-light {
+            background-image: url('/othersPages/pages/wooden-table-with-blurred-background\ \(1\).jpg'); 
+            background-size: contain;
+            background-repeat: round;
+        }
+        .fantasy-bg-dark {
+            background-image: url('/othersPages/pages/wooden-table-with-blurred-background\ \(1\).jpg'); 
+            background-size: contain;
+            background-repeat: round;
+        }
+    </style>
+</head>
+<body dir="rtl" class="font-DanaDemiBold bg-gray-100 dark:bg-gray-900 fantasy-bg-light dark:fantasy-bg-dark transition duration-500">
+    <div class="min-h-screen flex items-center justify-center p-6">
+        <div class="max-w-[50rem] w-full bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+            <h1 class="text-center text-3xl text-gray-800 dark:text-gray-100 mb-6">اطلاعات خود را وارد نمایید.</h1>
+            <!-- Form to collect user information -->
+            <form class="space-y-4" action="{{url_for('user_info')}}" method="post">
+                <!-- Family Name Input -->
+                <div class="block md:flex justify-between items-center">
+                    
+                    <div class="w-full md:w-6/12 md:mr-2" style="width: 100%;">
+                        <label class="block text-gray-700 dark:text-gray-300" style="text-align: center;">نام خانوادگی</label>
+                        <input type="text" name="name" placeholder="{{current_user.name}}" class="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-indigo-400">
+                    </div>
+                </div>
+                <!-- Phone Number and Zip Code Inputs -->
+                <div class="block md:flex justify-between items-center">
+                    <div class="w-full md:w-6/12 ">
+                        <label class="block text-gray-700 dark:text-gray-300">شماره تلفن</label>
+                        <input type="tel" name="number" placeholder="{{current_user.number}}" class="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-indigo-400" required>
+                    </div>
+                    <div class="w-full md:w-6/12 md:mr-2">
+                        <label class="block text-gray-700 dark:text-gray-300">کد پستی</label>
+                        <input type="text" name="zipcode" placeholder="{{current_user.zipcode}}" class="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-indigo-400" required>
+                    </div>
+                </div>
+                <!-- Address Input -->
+                <div>
+                    <label class="block text-gray-700 dark:text-gray-300">آدرس</label>
+                    <textarea name="address" placeholder="{{current_user.address}}" class="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-indigo-400" rows="3" required></textarea>
+                </div>
+                <!-- Email Input -->
+                <div>
+                    <label class="block text-gray-700 dark:text-gray-300">ایمیل</label>
+                    <input type="email" name="email" placeholder="{{current_user.email}}" class="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-indigo-400">
+                </div>
+                <!-- Submit Button -->
+                <div class="flex justify-center items-center mt-6">
+                    <button type="submit" class="w-6/12 py-2 px-4 bg-orange-300 text-black rounded-md hover:bg-orange-400 transition duration-300">ثبت</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Toggle dark mode
+        const toggleTheme = document.querySelector('body');
+        const switchTheme = () => toggleTheme.classList.toggle('dark');
+    </script>
+</body>
+</html>
