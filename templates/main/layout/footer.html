@@ -1,0 +1,127 @@
+{% block footer %}
+    
+
+<!--footer-->
+<footer class="relative py-8 md:py-11 md:mt-[62px] bg-zinc-700">
+    <!-- Decorative SVG at the top of the footer -->
+    <svg
+        class="absolute hidden md:inline-block left-0 top-0 right-0 mx-auto text-gray-100 dark:text-zinc-800 rotate-180 w-[100px] h-[22px]">
+        <use href="#curve"></use>
+    </svg>
+    <!-- Centered chevron icon -->
+    <div
+        class="absolute -translate-y-2/4 left-0 top-0 right-0 mx-auto hidden md:flex-center w-[30px] h-[30px] rounded-full border-orange-300 border-2">
+        <svg class="w-5 h-5 text-zinc-700 dark:text-white rotate-180">
+            <use href="#chevron-down"></use>
+        </svg>
+    </div>
+    <div
+        class="flex justify-between flex-wrap xl:flex-nowrap sm:w-[94%] lg:w-[90%] px-4 md:px-0 mx-auto text-gray-300">
+        <div>
+            <!-- Logo and Brand Name -->
+            <div class="flex gap-x-5 mb-6 md:mb-4.5 text-gray-300">
+                <!-- <div class="w-[57px] h-[54px] ">
+                    <img src="/images/logo/logo1.png" alt="Golden Coffee">
+                </div> -->
+                <div class="flex justify-between align-center my-50%">
+                    <p class="font-MorabbaBold text-3xl md:text-5xl/[62px]">همتابوک</p>
+                </div>
+            </div>
+            <!-- Site Description -->
+            <p class="text-sm md:text-lg/[48px] xl:max-w-[606px]">ما برآنیم تا با ایجاد تجربه‌ای ناب و دلنشین در
+                دنیای کتاب، الگویی برای فرهنگ مطالعه در ایران باشیم و به مرجع الهام‌بخش عاشقان کتاب تبدیل شویم.
+                هر کتاب، سفری از جنس حال خوب است و در این راه، جامعه‌ای از خوانندگان مشتاق را گرد هم می‌آوریم؛ فضایی
+                برای تبادل نظر و کشف دنیای کتاب‌ها.
+            </p>
+        </div>
+        <div class="mt-10 md:mt-[26px]">
+            <!-- Quick Access Links -->
+            <h4 class="font-DanaDemiBold text-2xl mb-6 md:mb-7 text-white">
+                دسترسی سریع
+            </h4>
+            <div class="grid grid-cols-1 gap-y-2.5 md:gap-y-5 gap-x-10 md:gap-x-16 ">
+                <a href="#"
+                    class="text-base md:text-lg flex items-center gap-x-2 md:gap-x-3 hover:text-orange-300 transition-colors">
+                    <span class="inline-block w-2.5 h-1 bg-current rounded-full"></span>
+                    پرسش های متداول
+                </a>
+                <a href="#"
+                    class="text-base md:text-lg flex items-center gap-x-2 md:gap-x-3 hover:text-orange-300 transition-colors">
+                    <span class="inline-block w-2.5 h-1 bg-current rounded-full"></span>
+                    عودت کالا
+                </a>
+                <a href="#"
+                    class="text-base md:text-lg flex items-center gap-x-2 md:gap-x-3 hover:text-orange-300 transition-colors">
+                    <span class="inline-block w-2.5 h-1 bg-current rounded-full"></span>
+                    ثبت سفارش
+                </a>
+                <a href="#"
+                    class="text-base md:text-lg flex items-center gap-x-2 md:gap-x-3 hover:text-orange-300 transition-colors">
+                    <span class="inline-block w-2.5 h-1 bg-current rounded-full"></span>
+                    ارتباط با ما
+                </a>
+
+            </div>
+        </div>
+        <div class="mt-10 md:mt-[26px]">
+            <!-- Contact Us -->
+            <h4 class="font-DanaDemiBold text-2xl mb-6 md:mb-7 text-white">
+                در تماس باشیم
+            </h4>
+            <div>
+                <div class="mb-6 md:mb-10">
+                    <span class="flex items-center md:gap-x-3 gap-x-2 mb-4 md:mb-5">
+                        <svg class="shrink-0 md:w-6 md:h-6 w-5 h-5">
+                            <use href="#map"></use>
+                        </svg>
+                        خیابان میرداماد، کوچه دوم، پلاک 33
+                    </span>
+                    <div class="flex flex-wrap md:flex-nowrap gap-y-4 gap-x-5 font-DanaMedium">
+                        <a href="mailto:info@Coffee.com"
+                            class="flex items-center md:gap-x-3 gap-x-2 text-orange-300">
+                            <svg class="md:w-6 md:h-6 w-5 h-5">
+                                <use href="#envelope"></use>
+                            </svg>
+                            hamtabook@book.com
+                        </a>
+                        <div class="flex items-center md:gap-x-3 gap-x-2 ">
+                            <svg class="md:w-6 md:h-6 w-5 h-5">
+                                <use href="#phone"></use>
+                            </svg>
+                            <span class="ltr-text">021 - 1234567</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Social Media Links -->
+                <div class="flex gap-x-1.5 md:gap-x-6 ltr-text font-DanaMedium text-lg">
+                    <a href="#"
+                        class="flex-center flex-grow-0 gap-x-2 h-12 text-orange-200 border border-orange-200 rounded-2xl">
+                        @hamtaBook
+                        <svg class="w-[28px] h-[28px] md:w-[38px] md:h-[38px]">
+                            <use href="#telegram"></use>
+                        </svg>
+                    </a>
+                    <a href="#"
+                        class="flex-center flex-grow-0 gap-x-2 h-1/2 rounded-2xl text-zinc-700 bg-gradient-to-r from-orange-200 to-orange-300">
+                        @hamtaBook
+                        <svg class="w-[28px] h-[28px] md:w-[38px] md:h-[38px]">
+                            <use href="#instagram"></use>
+                        </svg>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Script links -->
+<script src="{{url_for('static', filename='main/scripts/app.js')}}"></script>
+<script src="{{url_for('static', filename='main/final-pageDetails/script.js')}}"></script>
+{% block script %}
+    
+{% endblock %}
+
+</body>
+
+</html>
+{% endblock %}

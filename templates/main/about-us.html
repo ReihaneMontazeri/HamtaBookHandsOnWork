@@ -1,0 +1,224 @@
+{% extends '/main/layout/base.html' %} <!-- Extends the base layout -->
+{% block header_script %}
+<script src="https://cdn.tailwindcss.com"></script> <!-- Includes Tailwind CSS -->
+{% endblock %}
+{% block content %}
+
+<main>
+    <!--bg black-->
+    <div class="overlay"></div>
+
+    <div class="py-5 lg:py-5 relative z-0 bg-transparent">
+    </div>
+    <!-- About Us Section -->
+    <section class="py-14 lg:py-24 relative">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative ">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-9">
+                <div class="img-box">
+                    <img src="{{url_for('static', filename='/images/main/book3.jpg')}}" alt="About Us tailwind page"
+                        class="max-lg:mx-auto object-cover rounded-3xl">
+                </div>
+                <div class="lg:pl-[100px] flex items-center">
+                    <div class="data w-full">
+                        <h2
+                            class="font-MorabbaBold font-bold text-4xl lg:text-5xl text-black mb-9 max-lg:text-center relative">
+                            درباره ما
+                        </h2>
+                        <p class="font-normal text-xl leading-8 text-gray-500 max-lg:text-center max-w-2xl mx-auto">
+                            ما برآنیم تا با ایجاد تجربه‌ای ناب و دلنشین در
+                            دنیای کتاب، الگویی برای فرهنگ مطالعه در ایران باشیم و به مرجع الهام‌بخش عاشقان کتاب تبدیل
+                            شویم.
+                            هر کتاب، سفری از جنس حال خوب است و در این راه، جامعه‌ای از خوانندگان مشتاق را گرد هم
+                            می‌آوریم؛ همتا بوک فضایی دوستانه و صمیمی برای تبادل نظرها و کشف دنیای عجیب و ناشناخته درون
+                            هر کدام از کتاب هایی است که در گوشه کنار کتابخانه ها منتظر خوانندگان خود نشسته اند!
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- New Section -->
+    <section class="py-14 lg:py-24 relative">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative ">
+            <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-9 ">
+
+                <div class="lg:pr-24 flex items-center">
+                    <div class="data w-full">
+                        <!-- Image for smaller screens -->
+                        <img src="{{url_for('static', filename='/images/main/book2.jpg')}}" alt="About Us tailwind page"
+                            class="block lg:hidden mb-9 mx-auto object-cover">
+                        <h2 class="font-manrope font-bold text-4xl lg:text-5xl text-black mb-9 max-lg:text-center">نوپا
+                            ولی قدرتمند</h2>
+                        <p class="font-normal text-xl leading-8 text-gray-500 max-lg:text-center max-w-2xl mx-auto">
+                            وب‌سایت ما با وجود تازه‌وارد بودن، در میان برندهای بزرگ به‌عنوان یک گنج پنهان خود را متمایز
+                            کرده است. ما اینجا نیستیم که صرفاً یک نام دیگر اضافه کنیم، بلکه هدفمان بازتعریف تجربه کشف و
+                            خواندن کتاب‌ها است. نوآوری در قلب مأموریت ما قرار دارد و با ایده‌های جدید، مسیری متفاوت برای
+                            اتصال خوانندگان به داستان‌هایی که با آنها ارتباط می‌گیرند، ایجاد می‌کنیم. ما چیزی فراتر از
+                            فروش کتاب ارائه می‌دهیم؛ ما سفری الهام‌بخش و فضایی برای تخیل و تعامل شخصی فراهم می‌کنیم. هر
+                            تعامل در وب‌سایت ما طراحی شده تا معنادار باشد و تجربه‌ای منحصر به‌فرد را برای کاربران ایجاد
+                            کند. همراه شوید تا با هم فصل جدیدی در کشف و تجربه دنیای کتاب‌ها بنویسیم.
+                        </p>
+                    </div>
+                </div>
+                <div class="img-box ">
+                    <!-- Image for larger screens -->
+                    <img src="{{url_for('static', filename='/images/main/book5.jpg')}}" alt="About Us tailwind page"
+                        class="hidden lg:block object-cover h-[500px] rounded-3xl">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section for Our Goals -->
+    <section class="py-20 bg-white">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h2 class="font-manrope text-4xl text-center text-gray-900 font-bold mb-14">اهداف ما</h2>
+            <div class="flex flex-col gap-5 xl:gap-8 lg:flex-row lg:justify-between">
+                <!-- Goal=> Introducing New Books -->
+                <div
+                    class="w-full max-lg:max-w-2xl mx-auto lg:mx-0 lg:w-1/3 bg-white p-6 rounded-2xl shadow-md shadow-gray-100">
+                    <div class="flex gap-5">
+                        <div class="font-manrope text-2xl font-bold text-orange-400">
+                            240%
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-xl text-gray-900 font-semibold mb-2">معرفی کتاب های جدید</h4>
+                            <p class="text-xs text-gray-500 leading-5">هر هفته کتاب‌های جدید و جذابی را معرفی می‌کنیم تا
+                                همراه برتر شما در کشف دنیاهای جدید باشیم.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Goal=> Flexible Purchase Conditions -->
+                <div
+                    class="w-full max-lg:max-w-2xl mx-auto lg:mx-0 lg:w-1/3 bg-white p-6 rounded-2xl shadow-md shadow-gray-100">
+                    <div class="flex gap-5">
+                        <div class="font-manrope text-2xl font-bold text-orange-400">
+                            4+
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-xl text-gray-900 font-semibold mb-2">شرایط خرید منعطف</h4>
+                            <p class="text-xs text-gray-500 leading-5">برای آسانتر کردن فرایند خرید شما، شرایط خرید
+                                اقساط فعال خواهد شد!</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Goal=> Completed Shopping Carts -->
+                <div
+                    class="w-full max-lg:max-w-2xl mx-auto lg:mx-0 lg:w-1/3 bg-white p-6 rounded-2xl shadow-md shadow-gray-100">
+                    <div class="flex gap-5">
+                        <div class="font-manrope text-2xl font-bold text-orange-400">
+                            625+
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-xl text-gray-900 font-semibold mb-2">سبد خرید تکمیل شده</h4>
+                            <p class="text-xs text-gray-500 leading-5">اعتماد ارزشمند شما، بزرگ‌ترین افتخار و انگیزه‌ی
+                                ما برای ارائه‌ی بهترین خدمات و تجربه‌ای متفاوت است!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- User Reviews Section -->
+    <section class=" py-14 lg:py-24 bg-gray-50">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
+            <div class="mb-16 rounded-full">
+                <h2 class="text-4xl font-manrope font-bold text-gray-900 text-center">نظرات کاربران</h2>
+            </div>
+            <!-- Reviews Slider -->
+            <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="relative mb-20">
+                            <!--Slider Wrapper for Review 1 -->
+                            <div class="max-w-max mx-auto lg:max-w-4xl">
+                                <p class="text-lg text-gray-500 leading-8 mb-8 text-center">
+                                    سایت همتابوک واقعاً تجربه خرید آنلاین کتاب رو برای من بسیار راحت کرده. قیمت‌های
+                                    مناسب و تخفیف‌های ویژه باعث شده همیشه کتاب‌های مورد نیازم رو با قیمت‌های عالی پیدا
+                                    کنم. ارسال سریع و بدون تاخیر، به‌خصوص در روزهای شلوغ، هم از دیگر مزایای این سایته.
+                                    کیفیت بسته‌بندی کتاب‌ها هم همیشه بی‌نظیر بوده و هیچ‌وقت نگران آسیب‌دیدن کتاب‌ها
+                                    نیستم. پیشنهادهای ویژه هم که سایت ارائه می‌ده، همیشه برای من جذاب بوده.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="relative mb-20">
+                            <!-- Slider Wrapper for Review 2 -->
+                            <div class="max-w-max mx-auto lg:max-w-4xl">
+                                <p class="text-lg text-gray-500 leading-8 mb-8 text-center">
+                                    من عاشق پیشنهادات دقیق و کاربردی همتابوک هستم. سیستم به‌طور مداوم کتاب‌های جدیدی که
+                                    با علایق من هماهنگ هستند را به من معرفی می‌کند و من را در پیدا کردن کتاب‌های عالی
+                                    راهنمایی می‌کند. این ویژگی به من کمک کرده تا همیشه کتاب‌هایی پیدا کنم که برایم جذاب
+                                    و مفید باشند.
+                                    براساس سلیقه من، کتاب‌هایی که هیچ‌وقت به آن‌ها توجه نکرده بودم، معرفی می‌شود و همین
+                                    باعث شده همیشه به‌دنبال کشف کتاب‌های جدید و جالب باشم. این پیشنهادات به‌ویژه در زمان
+                                    تخفیف‌ها و پیشنهادات ویژه، خیلی مفید واقع می‌شود و خرید را به تجربه‌ای لذت‌بخش تبدیل
+                                    می‌کند.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="relative mb-20">
+                            <!-- Slider Wrapper for Review 3 -->
+                            <div class="max-w-max mx-auto lg:max-w-4xl">
+                                <p class="text-lg text-gray-500 leading-8 mb-8 text-center">
+                                    من همیشه از پیشنهادهای هوشمندانه‌ای که سیستم همتابوک ارائه می‌دهد، شگفت‌زده می‌شوم.
+                                    این پیشنهادات به‌گونه‌ای انتخاب می‌شوند که همواره کتاب‌هایی را پیدا می‌کنم که قبلاً
+                                    به آن‌ها فکر نکرده بودم. این ویژگی باعث شده تجربه خرید من به‌طور قابل‌توجهی بهبود
+                                    یابد و به‌راحتی کتاب‌های جدید و مناسب خودم را پیدا کنم
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Thumbnails for Reviews -->
+            <div thumbsSlider="" class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="https://pagedone.io/asset/uploads/1704349534.png" alt="Emily image"
+                            class="mx-auto scale-90 transition-all duration-300 swiper-slide:w-16 border rounded-full swiper-slide:border-orange-300 object-cover" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://pagedone.io/asset/uploads/1704349572.png" alt="Ethan image"
+                            class="mx-auto scale-90 transition-all duration-300 swiper-slide:w-16 border rounded-full swiper-slide:border-orange-300 object-cover" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://pagedone.io/asset/uploads/1704349514.png" alt="Olivia image"
+                            class="mx-auto scale-90 transition-all duration-300 swiper-slide:w-16 border rounded-full swiper-slide:border-orange-300 object-cover" />
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </section>
+
+
+    <!-- Follow Us Section -->
+    <section class="py-20 ">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="bg-teal-600 rounded-2xl p-8 xl:p-11">
+                <h2 class="font-manrope text-4xl text-white text-center font-bold mb-4">ما را دنبال کنید!
+                </h2>
+                <p class="text-teal-200 text-center mb-11 max-lg:max-w-2xl mx-auto">با ما در مسیر رشد همتابوک همراه
+                    باشید! برای اطلاع از جدیدترین عناوین و تخفیفات، ایمیل خود را وارد کنید:</p>
+                <div
+                    class="max-w-md mx-auto lg:bg-transparent lg:border border-gray-300 rounded-3xl max-lg:py-3 lg:rounded-full lg:h-12 lg:p-1.5 lg:flex-row gap-6 lg:gap-0 flex-col flex items-center justify-between">
+                    <input type="text" name="email"
+                        class="py-2 px-6 bg-transparent rounded-full max-lg:border border-gray-300  text-gray-100 max-lg:text-center placeholder:text-gray-100 focus:outline-none flex-1 w-full lg:w-auto lg:py-2 lg:px-6 lg:bg-transparent"
+                        placeholder="ایمیل خود را وارد کنید...">
+                    <button type="submit"
+                        class="py-2 px-5 text-sm bg-teal-400 shadow-md rounded-full  text-white font-semibold hover:bg-teal-500">ارسال</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
